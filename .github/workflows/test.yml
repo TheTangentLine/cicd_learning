@@ -1,0 +1,23 @@
+name: Running test
+run-name: Compiling C++ files
+
+on:
+  push:
+    paths:
+      - "main.cpp"
+
+jobs:
+  Compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile C++ file
+        run: g++ -o main main.cpp
+
+      - name: Run the program
+        run: ./main
+
+      - name: Stop the program
+        run: kill $(lsof -t -i:8080)

@@ -18,6 +18,3 @@ jobs:
 
       - name: Run the program
         run: ./main
-
-      - name: Stop the program
-        run: kill $(lsof -t -i:8080)
